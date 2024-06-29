@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "metadata": {
+    "appmode": "static"
+  },
+  "files": {
+    "frontend/favicon.ico": {
+      "checksum": "19882a3bba6122cd729ac832088c74a9"
+    },
+    "frontend/index.html": {
+      "checksum": "dd8335f1b8d30dc7ff377842eef31ed8"
+    },
+    "frontend/sitemap-0.xml": {
+      "checksum": "30380eec741d044786e35b8f9a247619"
+    },
+    "frontend/404.html": {
+      "checksum": "82468c9f7a93e4dd83f6ccf3e425acc3"
+    },
+    "frontend/sitemap.xml": {
+      "checksum": "d6bf0336c97af28283652fe889e5af61"
+    },
+    "frontend/robots.txt": {
+      "checksum": "cc82fea14a75a25eedc657dcbf93163e"
+    },
+    "frontend/_next/static/tU0zk0CVQpXW6zqHhQdHV/_ssgManifest.js": {
+      "checksum": "b6652df95db52feb4daf4eca35380933"
+    },
+    "frontend/_next/static/tU0zk0CVQpXW6zqHhQdHV/_buildManifest.js": {
+      "checksum": "9c318f4e1537311066beb1152850d4d7"
+    },
+    "frontend/_next/static/css/381461877b3e7945.css": {
+      "checksum": "0f18d44b09578b6f85a1f649252f4f83"
+    },
+    "frontend/_next/static/chunks/988-ab5a7c659e166397.js": {
+      "checksum": "fe50c7210b5e6cd736cf9f58482d7829"
+    },
+    "frontend/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js": {
+      "checksum": "837c0df77fd5009c9e46d446188ecfd0"
+    },
+    "frontend/_next/static/chunks/webpack-ce057566244fa2ce.js": {
+      "checksum": "ea04c38484399361cd0705f758a59907"
+    },
+    "frontend/_next/static/chunks/main-d118035c79e44985.js": {
+      "checksum": "dcff5f64c14db9995e9d158519604301"
+    },
+    "frontend/_next/static/chunks/framework-bbecb7d54330d002.js": {
+      "checksum": "94ea0d6d833b2b0b45dda08a3f3c05a9"
+    },
+    "frontend/_next/static/chunks/pages/_error-ee5b5fb91d29d86f.js": {
+      "checksum": "c3326b3abe625280046c113c62e026df"
+    },
+    "frontend/_next/static/chunks/pages/_app-90966475f972f92a.js": {
+      "checksum": "3162eebed9c44af5d14255b95bccd6e7"
+    },
+    "frontend/_next/static/chunks/pages/index-beed7559081c7386.js": {
+      "checksum": "7f639ff0e49df7a4c8d52deb9cb63ae8"
+    },
+    "frontend/_next/static/chunks/pages/404-0f97da08eb818078.js": {
+      "checksum": "fdd011e4a42141ba49dc5b7a4c8506dd"
+    },
+    "frontend/404/index.html": {
+      "checksum": "82468c9f7a93e4dd83f6ccf3e425acc3"
+    }
+  }
+}
