@@ -10,6 +10,8 @@ if os.getenv("RSTUDIO_PRODUCT") == "CONNECT":
         os.environ["CONNECT_SERVER"], f"content/{os.environ["CONNECT_CONTENT_GUID"]}"
     )
 
+print(f"{api_url=}")
+
 config = rx.Config(
     app_name="intro_reflex",
     api_url=api_url,
