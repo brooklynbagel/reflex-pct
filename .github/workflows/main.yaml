@@ -10,21 +10,19 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - run: cd intro_reflex && reflex export --backend-only --zip-dest-dir ..
-      - run: unzip -d backend backend.zip
+      - run: cd intro_reflex && reflex export --backend-only --zip-dest-dir ${{ runner.temp }}
+      - run: unzip -d ${{ runner.temp }}/backend ${{ runner.temp }}/backend.zip
       - shell: bash
         env:
           CONNECT_SERVER: ${{ secrets.CONNECT_SERVER }}
           CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}
           BACKEND_GUID: ${{ secrets.BACKEND_GUID }}
         run: |
-          if [[ -z "${BACKEND_GUID}" ]]; then
-            echo "new deployment"
-            rsconnect deploy fastapi --entrypoint intro_reflex.intro_reflex:app.api backend
-          else
-            echo "existing deployment"
-            rsconnect deploy fastapi --entrypoint intro_reflex.intro_reflex:app.api --app-id "${BACKEND_GUID}" backend
+          args=("--entrypoint" "intro_reflex.intro_reflex:app.api" "--title" "Reflex Backend")
+          if [[ -n "${BACKEND_GUID}" ]]; then
+            args+=("--app-id" "${BACKEND_GUID}")
           fi
+          rsconnect deploy fastapi "${args[@]}" ${{ runner.temp }}/backend
 
   deploy-frontend:
     runs-on: ubuntu-latest
@@ -38,8 +36,8 @@ jobs:
       - env:
           API_URL: ${{ secrets.CONNECT_SERVER }}/content/${{ secrets.BACKEND_GUID }}
           FRONTEND_PATH: ${{ secrets.FRONTEND_PATH }}
-        run: cd intro_reflex && reflex export --frontend-only --zip-dest-dir ..
-      - run: unzip -d frontend frontend.zip
+        run: cd intro_reflex && reflex export --frontend-only --zip-dest-dir ${{ runner.temp }}
+      - run: unzip -d ${{ runner.temp }}/frontend ${{ runner.temp }}/frontend.zip
       - shell: bash
         env:
           CONNECT_SERVER: ${{ secrets.CONNECT_SERVER }}
@@ -47,10 +45,8 @@ jobs:
           BACKEND_GUID: ${{ secrets.BACKEND_GUID }}
           FRONTEND_GUID: ${{ secrets.FRONTEND_GUID }}
         run: |
-          if [[ -z "${FRONTEND_GUID}" ]]; then
-            echo "new deployment"
-            rsconnect deploy html frontend
-          else
-            echo "existing deployment"
-            rsconnect deploy html --app-id "${FRONTEND_GUID}" frontend
+          args=("--title" "Reflex Frontend")
+          if [[ -n "${FRONTEND_GUID}" ]]; then
+            args+=("--app-id" "${FRONTEND_GUID}")
           fi
+          rsconnect deploy html "${args[@]}" ${{ runner.temp }}/frontend
