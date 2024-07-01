@@ -10,7 +10,7 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - run: cd intro_reflex && reflex export --backend-only --zip-dest-dir ${{ runner.temp }}
+      - run: reflex export --backend-only --zip-dest-dir ${{ runner.temp }}
       - run: unzip -d ${{ runner.temp }}/backend ${{ runner.temp }}/backend.zip
       - shell: bash
         env:
@@ -36,7 +36,7 @@ jobs:
       - env:
           API_URL: ${{ secrets.CONNECT_SERVER }}/content/${{ secrets.BACKEND_GUID }}
           FRONTEND_PATH: ${{ secrets.FRONTEND_PATH }}
-        run: cd intro_reflex && reflex export --frontend-only --zip-dest-dir ${{ runner.temp }}
+        run: reflex export --frontend-only --zip-dest-dir ${{ runner.temp }}
       - run: unzip -d ${{ runner.temp }}/frontend ${{ runner.temp }}/frontend.zip
       - shell: bash
         env:
