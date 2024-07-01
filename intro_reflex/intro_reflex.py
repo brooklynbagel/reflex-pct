@@ -1,8 +1,4 @@
-import time
-
 import reflex as rx
-
-from fastapi import Request
 
 
 class State(rx.State):
