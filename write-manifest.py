@@ -12,4 +12,4 @@ for root, _, files in Path("frontend").walk():
         manifest.add_file(root / file)
 
 with open("frontend/manifest.json", "wt") as fp:
-    fp.write(manifest.json)
+    fp.write(manifest)
